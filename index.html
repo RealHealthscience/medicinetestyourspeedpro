@@ -358,878 +358,874 @@
         let quizEndTime;
         let selectedTopic = '';
 
+        const questionBanks = {
+            "anatomy": [
+                {
+                    question: "Which bone is the longest bone in the human body?",
+                    options: [
+                        "Tibia",
+                        "Femur",
+                        "Humerus",
+                        "Radius"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "How many bones are in the human adult skeleton?",
+                    options: [
+                        "206",
+                        "212",
+                        "185",
+                        "230"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which of the following is NOT part of the axial skeleton?",
+                    options: [
+                        "Skull",
+                        "Vertebral column",
+                        "Femur",
+                        "Rib cage"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "The human heart is located in which body cavity?",
+                    options: [
+                        "Abdominal cavity",
+                        "Pelvic cavity",
+                        "Thoracic cavity",
+                        "Cranial cavity"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which muscle is responsible for breathing?",
+                    options: [
+                        "Cardiac muscle",
+                        "Diaphragm",
+                        "Quadriceps",
+                        "Trapezius"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which organ is responsible for filtering blood?",
+                    options: [
+                        "Liver",
+                        "Heart",
+                        "Lungs",
+                        "Kidneys"
+                    ],
+                    correctAnswer: 3
+                },
+                {
+                    question: "What type of joint is the knee?",
+                    options: [
+                        "Hinge",
+                        "Ball and socket",
+                        "Pivot",
+                        "Gliding"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "The clavicle is also known as the?",
+                    options: [
+                        "Collarbone",
+                        "Shinbone",
+                        "Jawbone",
+                        "Hip bone"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What part of the brain controls balance and coordination?",
+                    options: [
+                        "Cerebrum",
+                        "Cerebellum",
+                        "Brainstem",
+                        "Hypothalamus"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which blood vessel carries oxygen-rich blood from the heart to the body?",
+                    options: [
+                        "Veins",
+                        "Capillaries",
+                        "Aorta",
+                        "Pulmonary artery"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which bone protects the brain?",
+                    options: [
+                        "Femur",
+                        "Ribs",
+                        "Skull",
+                        "Scapula"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the smallest bone in the human body?",
+                    options: [
+                        "Stapes",
+                        "Ulna",
+                        "Fibula",
+                        "Scaphoid"
+                    ],
+                    correctAnswer: 0
+                }
+            ],
+            "physiology": [
+                {
+                    question: "What is the primary function of the mitochondria?",
+                    options: [
+                        "Protein synthesis",
+                        "Cell division",
+                        "Energy production",
+                        "Waste removal"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which hormone regulates blood sugar levels?",
+                    options: [
+                        "Testosterone",
+                        "Insulin",
+                        "Thyroxine",
+                        "Cortisol"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the normal resting heart rate for an adult?",
+                    options: [
+                        "40-60 beats per minute",
+                        "60-100 beats per minute",
+                        "100-120 beats per minute",
+                        "120-140 beats per minute"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which system is responsible for oxygen transport in the body?",
+                    options: [
+                        "Nervous system",
+                        "Endocrine system",
+                        "Respiratory system",
+                        "Cardiovascular system"
+                    ],
+                    correctAnswer: 3
+                },
+                {
+                    question: "What is the pH of human blood?",
+                    options: [
+                        "6.8-7.2",
+                        "7.35-7.45",
+                        "7.5-8.0",
+                        "5.8-6.2"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which organ produces bile?",
+                    options: [
+                        "Stomach",
+                        "Liver",
+                        "Pancreas",
+                        "Gallbladder"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the function of hemoglobin?",
+                    options: [
+                        "Clot blood",
+                        "Transport oxygen",
+                        "Break down fats",
+                        "Digest food"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which part of the nervous system controls voluntary movements?",
+                    options: [
+                        "Autonomic nervous system",
+                        "Somatic nervous system",
+                        "Central nervous system",
+                        "Sympathetic nervous system"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which gas is primarily responsible for stimulating breathing?",
+                    options: [
+                        "Oxygen",
+                        "Carbon dioxide",
+                        "Nitrogen",
+                        "Hydrogen"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which organ stores and releases glucose as needed?",
+                    options: [
+                        "Liver",
+                        "Pancreas",
+                        "Kidneys",
+                        "Spleen"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which enzyme breaks down starch into sugar?",
+                    options: [
+                        "Amylase",
+                        "Lipase",
+                        "Pepsin",
+                        "Trypsin"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which part of the eye controls the amount of light that enters?",
+                    options: [
+                        "Lens",
+                        "Retina",
+                        "Iris",
+                        "Cornea"
+                    ],
+                    correctAnswer: 2
+                }
+            ],
+            "pharmacology": [
+                {
+                    question: "What does the term 'half-life' refer to in pharmacology?",
+                    options: [
+                        "The time it takes to manufacture a drug",
+                        "The time it takes for half the drug to be eliminated from the body",
+                        "The maximum dosage of a drug",
+                        "The time a drug remains effective"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which of the following is an example of a beta-blocker?",
+                    options: [
+                        "Metformin",
+                        "Aspirin",
+                        "Propranolol",
+                        "Warfarin"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the primary purpose of an antibiotic?",
+                    options: [
+                        "Reduce inflammation",
+                        "Kill viral infections",
+                        "Treat bacterial infections",
+                        "Manage pain"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What does 'PO' mean in prescription writing?",
+                    options: [
+                        "Intravenous administration",
+                        "Per oral (by mouth)",
+                        "Painful onset",
+                        "Partial observation"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which drug class is used to treat depression?",
+                    options: [
+                        "Antihypertensives",
+                        "Anticoagulants",
+                        "SSRIs",
+                        "Diuretics"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which organ is primarily responsible for drug metabolism?",
+                    options: [
+                        "Lungs",
+                        "Kidneys",
+                        "Liver",
+                        "Stomach"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which route of drug administration has the fastest effect?",
+                    options: [
+                        "Oral",
+                        "Intramuscular",
+                        "Intravenous",
+                        "Subcutaneous"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the function of diuretics?",
+                    options: [
+                        "Lower blood sugar",
+                        "Increase urine output",
+                        "Treat infections",
+                        "Reduce inflammation"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which drug is commonly used as a pain reliever?",
+                    options: [
+                        "Aspirin",
+                        "Metformin",
+                        "Amoxicillin",
+                        "Simvastatin"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which medication is commonly used to treat high blood pressure?",
+                    options: [
+                        "Atorvastatin",
+                        "Lisinopril",
+                        "Omeprazole",
+                        "Metformin"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is an adverse drug reaction?",
+                    options: [
+                        "A desired effect of the drug",
+                        "A side effect that is harmful or unexpected",
+                        "The elimination of the drug from the body",
+                        "The absorption of the drug"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which of the following drugs is classified as an NSAID?",
+                    options: [
+                        "Ibuprofen",
+                        "Insulin",
+                        "Morphine",
+                        "Paracetamol"
+                    ],
+                    correctAnswer: 0
+                }
+            ],
+            "pathology": [
+                {
+                    question: "What is metastasis?",
+                    options: [
+                        "Inflammation of tissues",
+                        "Spread of cancer to other body parts",
+                        "Genetic mutation",
+                        "Healing of a wound"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which condition is characterized by inflammation of joints?",
+                    options: [
+                        "Osteoporosis",
+                        "Arthritis",
+                        "Myocarditis",
+                        "Hepatitis"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What does the term 'chronic' indicate in disease progression?",
+                    options: [
+                        "Sudden onset",
+                        "Rapidly progressing",
+                        "Long-lasting condition",
+                        "Easily treatable"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which pathological condition affects the liver?",
+                    options: [
+                        "Cirrhosis",
+                        "Glaucoma",
+                        "Asthma",
+                        "Epilepsy"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What is a biopsy?",
+                    options: [
+                        "Blood test",
+                        "Imaging technique",
+                        "Removal of tissue for examination",
+                        "Surgical procedure"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the primary cause of tuberculosis?",
+                    options: [
+                        "Virus",
+                        "Bacteria",
+                        "Fungi",
+                        "Parasite"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What type of disease is diabetes?",
+                    options: [
+                        "Infectious",
+                        "Autoimmune",
+                        "Genetic disorder",
+                        "Neurological disorder"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which disease is caused by uncontrolled cell growth?",
+                    options: [
+                        "Diabetes",
+                        "Hypertension",
+                        "Cancer",
+                        "Asthma"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which organ does hepatitis primarily affect?",
+                    options: [
+                        "Lungs",
+                        "Liver",
+                        "Heart",
+                        "Kidneys"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which of the following is a common autoimmune disease?",
+                    options: [
+                        "Malaria",
+                        "Rheumatoid arthritis",
+                        "Tuberculosis",
+                        "Influenza"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is necrosis?",
+                    options: [
+                        "Inflammation",
+                        "Tissue death",
+                        "New tissue growth",
+                        "Tumor formation"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which condition results from a lack of oxygen to body tissues?",
+                    options: [
+                        "Hyperglycemia",
+                        "Ischemia",
+                        "Nephritis",
+                        "Hepatitis"
+                    ],
+                    correctAnswer: 1
+                }
+            ],
+            "microbiology": [
+                {
+                    question: "What is a prokaryotic organism?",
+                    options: [
+                        "Multi-cellular organism",
+                        "Organism without a nucleus",
+                        "Virus",
+                        "Fungal cell"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which of these is NOT a type of bacteria?",
+                    options: [
+                        "Cocci",
+                        "Bacilli",
+                        "Spirilla",
+                        "Viruses"
+                    ],
+                    correctAnswer: 3
+                },
+                {
+                    question: "What does 'gram-positive' refer to?",
+                    options: [
+                        "Bacterial cell wall structure",
+                        "Bacterial growth rate",
+                        "Bacterial habitat",
+                        "Bacterial size"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which microorganism causes malaria?",
+                    options: [
+                        "Bacteria",
+                        "Virus",
+                        "Protozoan",
+                        "Fungus"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the primary function of antibodies?",
+                    options: [
+                        "Produce energy",
+                        "Fight infections",
+                        "Digest food",
+                        "Regulate temperature"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which virus is responsible for causing AIDS?",
+                    options: [
+                        "HIV",
+                        "Ebola",
+                        "Hepatitis B",
+                        "Influenza"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "What is the purpose of an endospore in bacteria?",
+                    options: [
+                        "A reproductive structure",
+                        "A defense mechanism for survival",
+                        "A method of movement",
+                        "A protein synthesis site"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which bacterial shape is rod-like?",
+                    options: [
+                        "Coccus",
+                        "Bacillus",
+                        "Spirillum",
+                        "Filamentous"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which staining technique differentiates bacteria based on their cell wall composition?",
+                    options: [
+                        "Gram staining",
+                        "Acid-fast staining",
+                        "Simple staining",
+                        "Capsule staining"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which microorganism is used in the production of antibiotics like penicillin?",
+                    options: [
+                        "Bacteria",
+                        "Fungi",
+                        "Virus",
+                        "Protozoa"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What type of microorganism causes tuberculosis?",
+                    options: [
+                        "Fungus",
+                        "Bacteria",
+                        "Virus",
+                        "Protozoa"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the name of the process where bacteria exchange genetic material?",
+                    options: [
+                        "Conjugation",
+                        "Mitosis",
+                        "Endocytosis",
+                        "Phagocytosis"
+                    ],
+                    correctAnswer: 0
+                }
+            ],
+            "biochemistry": [
+                {
+                    question: "What are the building blocks of proteins?",
+                    options: [
+                        "Nucleotides",
+                        "Fatty acids",
+                        "Amino acids",
+                        "Glucose molecules"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the primary energy currency of the cell?",
+                    options: [
+                        "Glucose",
+                        "ATP",
+                        "Creatine phosphate",
+                        "Pyruvate"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which enzyme begins protein digestion in the stomach?",
+                    options: [
+                        "Lipase",
+                        "Pepsin",
+                        "Amylase",
+                        "Trypsin"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the primary function of glycogen?",
+                    options: [
+                        "Protein synthesis",
+                        "Energy storage",
+                        "Cell membrane formation",
+                        "Hormone production"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which vitamin is crucial for blood clotting?",
+                    options: [
+                        "Vitamin A",
+                        "Vitamin B12",
+                        "Vitamin C",
+                        "Vitamin K"
+                    ],
+                    correctAnswer: 3
+                },
+                {
+                    question: "Which macromolecule serves as the main component of cell membranes?",
+                    options: [
+                        "Proteins",
+                        "Carbohydrates",
+                        "Lipids",
+                        "Nucleic acids"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the main function of hemoglobin?",
+                    options: [
+                        "Energy production",
+                        "Transporting oxygen",
+                        "Breaking down fats",
+                        "Immune response"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What type of bond holds amino acids together in proteins?",
+                    options: [
+                        "Hydrogen bond",
+                        "Peptide bond",
+                        "Ionic bond",
+                        "Covalent bond"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which molecule acts as the blueprint for protein synthesis?",
+                    options: [
+                        "DNA",
+                        "RNA",
+                        "ATP",
+                        "Enzymes"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the major component of DNA?",
+                    options: [
+                        "Amino acids",
+                        "Nucleotides",
+                        "Fatty acids",
+                        "Monosaccharides"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the function of enzymes?",
+                    options: [
+                        "Store genetic information",
+                        "Speed up chemical reactions",
+                        "Transport oxygen",
+                        "Generate ATP"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which element is found in all organic molecules?",
+                    options: [
+                        "Oxygen",
+                        "Carbon",
+                        "Nitrogen",
+                        "Hydrogen"
+                    ],
+                    correctAnswer: 1
+                }
+            ],
+            "genetics": [
+                {
+                    question: "What is a chromosome?",
+                    options: [
+                        "A type of protein",
+                        "Genetic material containing DNA",
+                        "A cell membrane",
+                        "A type of enzyme"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "How many chromosomes do humans typically have?",
+                    options: [
+                        "23",
+                        "36",
+                        "46",
+                        "52"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What does DNA stand for?",
+                    options: [
+                        "Digital Nucleic Acid",
+                        "Deoxyribonucleic Acid",
+                        "Dynamic Nucleotide Assembly",
+                        "Detailed Nucleus Arrangement"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is a gene mutation?",
+                    options: [
+                        "A change in chromosome structure",
+                        "A change in genetic material",
+                        "A new organism formation",
+                        "A cell division process"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What determines genetic inheritance?",
+                    options: [
+                        "Diet",
+                        "Environment",
+                        "Chromosomes from parents",
+                        "Personal experiences"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the function of RNA?",
+                    options: [
+                        "Store genetic material",
+                        "Replicate DNA",
+                        "Translate genetic code into proteins",
+                        "Break down carbohydrates"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is the role of a ribosome?",
+                    options: [
+                        "DNA replication",
+                        "Protein synthesis",
+                        "Energy production",
+                        "Transporting oxygen"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "Which genetic disorder is caused by an extra chromosome 21?",
+                    options: [
+                        "Cystic fibrosis",
+                        "Sickle cell anemia",
+                        "Down syndrome",
+                        "Hemophilia"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "Which scientist discovered the laws of inheritance?",
+                    options: [
+                        "Darwin",
+                        "Mendel",
+                        "Watson",
+                        "Crick"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is a dominant allele?",
+                    options: [
+                        "An allele that is always expressed when present",
+                        "An allele that is never expressed",
+                        "An allele that requires two copies to be expressed",
+                        "An allele that only appears in males"
+                    ],
+                    correctAnswer: 0
+                },
+                {
+                    question: "Which molecule is responsible for carrying amino acids during protein synthesis?",
+                    options: [
+                        "mRNA",
+                        "tRNA",
+                        "rRNA",
+                        "DNA"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    question: "What is the process of creating an identical copy of DNA called?",
+                    options: [
+                        "Transcription",
+                        "Translation",
+                        "Replication",
+                        "Mutation"
+                    ],
+                    correctAnswer: 2
+                },
+                {
+                    question: "What is an example of a sex-linked genetic disorder?",
+                    options: [
+                        "Cystic fibrosis",
+                        "Huntington's disease",
+                        "Hemophilia",
+                        "Down syndrome"
+                    ],
+                    correctAnswer: 2
+                }
+            ]
+        };
 
-
-const questionBanks = {
-    "anatomy": [
-        {
-            question: "Which bone is the longest bone in the human body?",
-            options: [
-                "Tibia",
-                "Femur",
-                "Humerus",
-                "Radius"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "How many bones are in the human adult skeleton?",
-            options: [
-                "206",
-                "212",
-                "185",
-                "230"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which of the following is NOT part of the axial skeleton?",
-            options: [
-                "Skull",
-                "Vertebral column",
-                "Femur",
-                "Rib cage"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "The human heart is located in which body cavity?",
-            options: [
-                "Abdominal cavity",
-                "Pelvic cavity",
-                "Thoracic cavity",
-                "Cranial cavity"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which muscle is responsible for breathing?",
-            options: [
-                "Cardiac muscle",
-                "Diaphragm",
-                "Quadriceps",
-                "Trapezius"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which organ is responsible for filtering blood?",
-            options: [
-                "Liver",
-                "Heart",
-                "Lungs",
-                "Kidneys"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What type of joint is the knee?",
-            options: [
-                "Hinge",
-                "Ball and socket",
-                "Pivot",
-                "Gliding"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "The clavicle is also known as the?",
-            options: [
-                "Collarbone",
-                "Shinbone",
-                "Jawbone",
-                "Hip bone"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "What part of the brain controls balance and coordination?",
-            options: [
-                "Cerebrum",
-                "Cerebellum",
-                "Brainstem",
-                "Hypothalamus"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which blood vessel carries oxygen-rich blood from the heart to the body?",
-            options: [
-                "Veins",
-                "Capillaries",
-                "Aorta",
-                "Pulmonary artery"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which bone protects the brain?",
-            options: [
-                "Femur",
-                "Ribs",
-                "Skull",
-                "Scapula"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the smallest bone in the human body?",
-            options: [
-                "Stapes",
-                "Ulna",
-                "Fibula",
-                "Scaphoid"
-            ],
-            correctAnswer: 0
-        }
-    ],
-    "physiology": [
-        {
-            question: "What is the primary function of the mitochondria?",
-            options: [
-                "Protein synthesis",
-                "Cell division",
-                "Energy production",
-                "Waste removal"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which hormone regulates blood sugar levels?",
-            options: [
-                "Testosterone",
-                "Insulin",
-                "Thyroxine",
-                "Cortisol"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the normal resting heart rate for an adult?",
-            options: [
-                "40-60 beats per minute",
-                "60-100 beats per minute",
-                "100-120 beats per minute",
-                "120-140 beats per minute"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which system is responsible for oxygen transport in the body?",
-            options: [
-                "Nervous system",
-                "Endocrine system",
-                "Respiratory system",
-                "Cardiovascular system"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What is the pH of human blood?",
-            options: [
-                "6.8-7.2",
-                "7.35-7.45",
-                "7.5-8.0",
-                "5.8-6.2"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which organ produces bile?",
-            options: [
-                "Stomach",
-                "Liver",
-                "Pancreas",
-                "Gallbladder"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the function of hemoglobin?",
-            options: [
-                "Clot blood",
-                "Transport oxygen",
-                "Break down fats",
-                "Digest food"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which part of the nervous system controls voluntary movements?",
-            options: [
-                "Autonomic nervous system",
-                "Somatic nervous system",
-                "Central nervous system",
-                "Sympathetic nervous system"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which gas is primarily responsible for stimulating breathing?",
-            options: [
-                "Oxygen",
-                "Carbon dioxide",
-                "Nitrogen",
-                "Hydrogen"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which organ stores and releases glucose as needed?",
-            options: [
-                "Liver",
-                "Pancreas",
-                "Kidneys",
-                "Spleen"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which enzyme breaks down starch into sugar?",
-            options: [
-                "Amylase",
-                "Lipase",
-                "Pepsin",
-                "Trypsin"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which part of the eye controls the amount of light that enters?",
-            options: [
-                "Lens",
-                "Retina",
-                "Iris",
-                "Cornea"
-            ],
-            correctAnswer: 2
-        }
-    ],
-   "pharmacology": [
-        {
-            question: "What does the term 'half-life' refer to in pharmacology?",
-            options: [
-                "The time it takes to manufacture a drug",
-                "The time it takes for half the drug to be eliminated from the body",
-                "The maximum dosage of a drug",
-                "The time a drug remains effective"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which of the following is an example of a beta-blocker?",
-            options: [
-                "Metformin",
-                "Aspirin",
-                "Propranolol",
-                "Warfarin"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the primary purpose of an antibiotic?",
-            options: [
-                "Reduce inflammation",
-                "Kill viral infections",
-                "Treat bacterial infections",
-                "Manage pain"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What does 'PO' mean in prescription writing?",
-            options: [
-                "Intravenous administration",
-                "Per oral (by mouth)",
-                "Painful onset",
-                "Partial observation"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which drug class is used to treat depression?",
-            options: [
-                "Antihypertensives",
-                "Anticoagulants",
-                "SSRIs",
-                "Diuretics"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which organ is primarily responsible for drug metabolism?",
-            options: [
-                "Lungs",
-                "Kidneys",
-                "Liver",
-                "Stomach"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which route of drug administration has the fastest effect?",
-            options: [
-                "Oral",
-                "Intramuscular",
-                "Intravenous",
-                "Subcutaneous"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the function of diuretics?",
-            options: [
-                "Lower blood sugar",
-                "Increase urine output",
-                "Treat infections",
-                "Reduce inflammation"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which drug is commonly used as a pain reliever?",
-            options: [
-                "Aspirin",
-                "Metformin",
-                "Amoxicillin",
-                "Simvastatin"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which medication is commonly used to treat high blood pressure?",
-            options: [
-                "Atorvastatin",
-                "Lisinopril",
-                "Omeprazole",
-                "Metformin"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is an adverse drug reaction?",
-            options: [
-                "A desired effect of the drug",
-                "A side effect that is harmful or unexpected",
-                "The elimination of the drug from the body",
-                "The absorption of the drug"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which of the following drugs is classified as an NSAID?",
-            options: [
-                "Ibuprofen",
-                "Insulin",
-                "Morphine",
-                "Paracetamol"
-            ],
-            correctAnswer: 0
-        }
-    ],
-    "pathology": [
-        {
-            question: "What is metastasis?",
-            options: [
-                "Inflammation of tissues",
-                "Spread of cancer to other body parts",
-                "Genetic mutation",
-                "Healing of a wound"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which condition is characterized by inflammation of joints?",
-            options: [
-                "Osteoporosis",
-                "Arthritis",
-                "Myocarditis",
-                "Hepatitis"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What does the term 'chronic' indicate in disease progression?",
-            options: [
-                "Sudden onset",
-                "Rapidly progressing",
-                "Long-lasting condition",
-                "Easily treatable"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which pathological condition affects the liver?",
-            options: [
-                "Cirrhosis",
-                "Glaucoma",
-                "Asthma",
-                "Epilepsy"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "What is a biopsy?",
-            options: [
-                "Blood test",
-                "Imaging technique",
-                "Removal of tissue for examination",
-                "Surgical procedure"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the primary cause of tuberculosis?",
-            options: [
-                "Virus",
-                "Bacteria",
-                "Fungi",
-                "Parasite"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What type of disease is diabetes?",
-            options: [
-                "Infectious",
-                "Autoimmune",
-                "Genetic disorder",
-                "Neurological disorder"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which disease is caused by uncontrolled cell growth?",
-            options: [
-                "Diabetes",
-                "Hypertension",
-                "Cancer",
-                "Asthma"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which organ does hepatitis primarily affect?",
-            options: [
-                "Lungs",
-                "Liver",
-                "Heart",
-                "Kidneys"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which of the following is a common autoimmune disease?",
-            options: [
-                "Malaria",
-                "Rheumatoid arthritis",
-                "Tuberculosis",
-                "Influenza"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is necrosis?",
-            options: [
-                "Inflammation",
-                "Tissue death",
-                "New tissue growth",
-                "Tumor formation"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which condition results from a lack of oxygen to body tissues?",
-            options: [
-                "Hyperglycemia",
-                "Ischemia",
-                "Nephritis",
-                "Hepatitis"
-            ],
-            correctAnswer: 1
-        }
-    ],
-   "microbiology": [
-        {
-            question: "What is a prokaryotic organism?",
-            options: [
-                "Multi-cellular organism",
-                "Organism without a nucleus",
-                "Virus",
-                "Fungal cell"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which of these is NOT a type of bacteria?",
-            options: [
-                "Cocci",
-                "Bacilli",
-                "Spirilla",
-                "Viruses"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "What does 'gram-positive' refer to?",
-            options: [
-                "Bacterial cell wall structure",
-                "Bacterial growth rate",
-                "Bacterial habitat",
-                "Bacterial size"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which microorganism causes malaria?",
-            options: [
-                "Bacteria",
-                "Virus",
-                "Protozoan",
-                "Fungus"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the primary function of antibodies?",
-            options: [
-                "Produce energy",
-                "Fight infections",
-                "Digest food",
-                "Regulate temperature"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which virus is responsible for causing AIDS?",
-            options: [
-                "HIV",
-                "Ebola",
-                "Hepatitis B",
-                "Influenza"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "What is the purpose of an endospore in bacteria?",
-            options: [
-                "A reproductive structure",
-                "A defense mechanism for survival",
-                "A method of movement",
-                "A protein synthesis site"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which bacterial shape is rod-like?",
-            options: [
-                "Coccus",
-                "Bacillus",
-                "Spirillum",
-                "Filamentous"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which staining technique differentiates bacteria based on their cell wall composition?",
-            options: [
-                "Gram staining",
-                "Acid-fast staining",
-                "Simple staining",
-                "Capsule staining"
-            ],
-            correctAnswer: 0
-        },
-        {
-            question: "Which microorganism is used in the production of antibiotics like penicillin?",
-            options: [
-                "Bacteria",
-                "Fungi",
-                "Virus",
-                "Protozoa"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What type of microorganism causes tuberculosis?",
-            options: [
-                "Fungus",
-                "Bacteria",
-                "Virus",
-                "Protozoa"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the name of the process where bacteria exchange genetic material?",
-            options: [
-                "Conjugation",
-                "Mitosis",
-                "Endocytosis",
-                "Phagocytosis"
-            ],
-            correctAnswer: 0
-        }
-    ],
-    "biochemistry": [
-        {
-            question: "What are the building blocks of proteins?",
-            options: [
-                "Nucleotides",
-                "Fatty acids",
-                "Amino acids",
-                "Glucose molecules"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the primary energy currency of the cell?",
-            options: [
-                "Glucose",
-                "ATP",
-                "Creatine phosphate",
-                "Pyruvate"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which enzyme begins protein digestion in the stomach?",
-            options: [
-                "Lipase",
-                "Pepsin",
-                "Amylase",
-                "Trypsin"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the primary function of glycogen?",
-            options: [
-                "Protein synthesis",
-                "Energy storage",
-                "Cell membrane formation",
-                "Hormone production"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which vitamin is crucial for blood clotting?",
-            options: [
-                "Vitamin A",
-                "Vitamin B12",
-                "Vitamin C",
-                "Vitamin K"
-            ],
-            correctAnswer: 3
-        },
-        {
-            question: "Which macromolecule serves as the main component of cell membranes?",
-            options: [
-                "Proteins",
-                "Carbohydrates",
-                "Lipids",
-                "Nucleic acids"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the main function of hemoglobin?",
-            options: [
-                "Energy production",
-                "Transporting oxygen",
-                "Breaking down fats",
-                "Immune response"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What type of bond holds amino acids together in proteins?",
-            options: [
-                "Hydrogen bond",
-                "Peptide bond",
-                "Ionic bond",
-                "Covalent bond"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which molecule acts as the blueprint for protein synthesis?",
-            options: [
-                "DNA",
-                "RNA",
-                "ATP",
-                "Enzymes"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the major component of DNA?",
-            options: [
-                "Amino acids",
-                "Nucleotides",
-                "Fatty acids",
-                "Monosaccharides"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is the function of enzymes?",
-            options: [
-                "Store genetic information",
-                "Speed up chemical reactions",
-                "Transport oxygen",
-                "Generate ATP"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which element is found in all organic molecules?",
-            options: [
-                "Oxygen",
-                "Carbon",
-                "Nitrogen",
-                "Hydrogen"
-            ],
-            correctAnswer: 1
-        }
-    ],
-    "genetics": [
-        {
-            question: "What is a chromosome?",
-            options: [
-                "A type of protein",
-                "Genetic material containing DNA",
-                "A cell membrane",
-                "A type of enzyme"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "How many chromosomes do humans typically have?",
-            options: [
-                "23",
-                "36",
-                "46",
-                "52"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What does DNA stand for?",
-            options: [
-                "Digital Nucleic Acid",
-                "Deoxyribonucleic Acid",
-                "Dynamic Nucleotide Assembly",
-                "Detailed Nucleus Arrangement"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What is a gene mutation?",
-            options: [
-                "A change in chromosome structure",
-                "A change in genetic material",
-                "A new organism formation",
-                "A cell division process"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "What determines genetic inheritance?",
-            options: [
-                "Diet",
-                "Environment",
-                "Chromosomes from parents",
-                "Personal experiences"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the function of RNA?",
-            options: [
-                "Store genetic material",
-                "Replicate DNA",
-                "Translate genetic code into proteins",
-                "Break down carbohydrates"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "What is the role of a ribosome?",
-            options: [
-                "DNA replication",
-                "Protein synthesis",
-                "Energy production",
-                "Transporting oxygen"
-            ],
-            correctAnswer: 1
-        },
-        {
-            question: "Which genetic disorder is caused by an extra chromosome 21?",
-            options: [
-                "Cystic fibrosis",
-                "Sickle cell anemia",
-                "Down syndrome",
-                "Hemophilia"
-            ],
-            correctAnswer: 2
-        },
-        {
-            question: "Which scientist discovered the laws of inheritance?",
-            options: [
-                "Darwin",
-                "Mendel",
-                "Watson",
-                "Crick"
-            ],
-            correctAnswer: 1
-        },
-        {
-        question: "What is a dominant allele?",
-        options: [
-            "An allele that is always expressed when present",
-            "An allele that is never expressed",
-            "An allele that requires two copies to be expressed",
-            "An allele that only appears in males"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Which molecule is responsible for carrying amino acids during protein synthesis?",
-        options: [
-            "mRNA",
-            "tRNA",
-            "rRNA",
-            "DNA"
-        ],
-        correctAnswer: 1
-    },
-    {
-        question: "What is the process of creating an identical copy of DNA called?",
-        options: [
-            "Transcription",
-            "Translation",
-            "Replication",
-            "Mutation"
-        ],
-        correctAnswer: 2
-    },
-    {
-        question: "What is an example of a sex-linked genetic disorder?",
-        options: [
-            "Cystic fibrosis",
-            "Huntington's disease",
-            "Hemophilia",
-            "Down syndrome"
-        ],
-        correctAnswer: 2
-    }
-]
-    
-};
-
-
- // Enable the start button when a topic is selected
+        // Enable the start button when a topic is selected
         topicSelect.addEventListener('change', () => {
             selectedTopic = topicSelect.value;
             startBtn.disabled = false;
@@ -1345,7 +1341,7 @@ const questionBanks = {
             });
             
             // Highlight the correct answer
-            const correctAnswerIndex = quizQuestions[currentQuestion].answer;
+            const correctAnswerIndex = quizQuestions[currentQuestion].correctAnswer;
             buttons[correctAnswerIndex].classList.add('correct');
             
             // Wait a moment before moving to the next question
@@ -1361,7 +1357,7 @@ const questionBanks = {
             const selectedIndex = parseInt(e.target.dataset.index);
             
             // Get the correct answer index
-            const correctAnswerIndex = quizQuestions[currentQuestion].answer;
+            const correctAnswerIndex = quizQuestions[currentQuestion].correctAnswer;
             
             // Disable all answer buttons
             const buttons = document.querySelectorAll('.answer-btn');
@@ -1415,7 +1411,7 @@ const questionBanks = {
             const percentage = (score / quizQuestions.length) * 100;
             
             if (percentage >= 90) {
-                resultsMessage = 'Excellent! You have a profound understanding of this chemistry discipline.';
+                resultsMessage = 'Excellent! You have a profound understanding of this health/medical science discipline.';
             } else if (percentage >= 70) {
                 resultsMessage = 'Great job! You have a solid grasp of the key concepts.';
             } else if (percentage >= 50) {
